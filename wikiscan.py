@@ -1,59 +1,54 @@
-#Create by WikiDev_
-#Youtube Channel: https://bit.ly/3gBvD1C
-
 import socket
+print("\nCreated by Vitor Daniel Verli!")
+print("GitHub Profile: https://github.com/VitorDanielVerli")
+print("Complete Profile: https://sitevitordanielverli.web.app\n")
 
-ip = raw_input("Write the IP our Address: \n")
-cport = raw_input("Do you want to scan all ports for, specific port or group of ports? \n1 = all \n2 = specific \n3 = group \n")
+ip = input("Write the IP our Address: \n")
+cport = input("Do you want to scan all ports for, specific port or group of ports? \n1 = all \n2 = specific \n3 = group \n")
 
 if cport == "1":
     ports = range(65535)
-    timeout = float(raw_input("Write the timeout for requests: \n 0.01 = 10 miliseconds \n"))
+    timeout = float(input("Write the timeout for requests: \n 0.01 = 10 miliseconds \n"))
     for port in ports:
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client.settimeout(timeout)
         code = client.connect_ex((ip, port))
         if code == 0:
-            print str(port) + " -> Port Open"
+            print (str(port) + " -> Port Open")
+    input("Press enter to exit script!\n") 
 elif cport == "2":
-    port1 = int(raw_input("Write the number of port: \n"))
+    port1 = int(input("Write the number of port: \n"))
     if port1 > 65536:
-        print "This number of port is invalid!"
+        print ("This number of port is invalid!")
     else:
-        timeout = float(raw_input("Write the timeout for requests: \n 0.01 = 10 miliseconds \n"))
+        timeout = float(input("Write the timeout for requests: \n 0.01 = 10 miliseconds \n"))
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client.settimeout(timeout)
         code = client.connect_ex((ip, port1))
         if code == 0:
-            print str(port1) + " -> Port Open"
+            print (str(port1) + " -> Port Open")
         else:
-            print str(port1) + " -> Port Closed"
+            print (str(port1) + " -> Port Closed")
+        print("\n")
+        input("Press enter to exit script!\n") 
 elif cport == "3":
-    timeout = float(raw_input("Write the timeout for requests: \n 0.01 = 10 miliseconds \n"))
-    nport = int(raw_input("how many ports will you scan? \n"))
+    timeout = float(input("Write the timeout for requests: \n 0.01 = 10 miliseconds \n"))
+    nport = int(input("how many ports will you scan? \n"))
     ports2 = []
     count = 0
     while count < nport:
-        ports2.append(int(raw_input("Write the ports: \n")))
+        ports2.append(int(input("Write the ports: \n")))
         count += 1
     for port2 in ports2:
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client.settimeout(0.1)
         code = client.connect_ex((ip, port2))
         if code == 0:
-            print str(port2) + " -> Port Open"
+            print (str(port2) + " -> Port Open")
         else:
-            print str(port2) + " -> Port Closed"
+            print (str(port2) + " -> Port Closed")
+    print("\n")
+    input("Press enter to exit script!\n")     
 else:
-    print "This option is invalid!!"
-
-
-
-
-
-
-
-
-
-
+    print ("This option is invalid!!")
 
