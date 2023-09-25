@@ -1,7 +1,6 @@
 import socket
-print("\nCreated by Vitor Daniel Verli!")
-print("GitHub Profile: https://github.com/VitorDanielVerli")
-print("Complete Profile: https://sitevitordanielverli.web.app\n")
+print("\nCreated by Wiki_")
+print("GitHub Profile: https://github.com/Vitor-Softwares")
 
 ip = input("Write the IP our Address: \n")
 cport = input("Do you want to scan all ports for, specific port or group of ports? \n1 = all \n2 = specific \n3 = group \n")
